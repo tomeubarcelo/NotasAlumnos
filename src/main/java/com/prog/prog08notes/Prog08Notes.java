@@ -31,13 +31,26 @@ public class Prog08Notes {
         do {
             opcio = menuOpcions();
             switch (opcio) {
-                case 1 -> pn.inserirAlumne();
-                case 2 -> pn.mitjanesAlumnes();
-                case 3 -> pn.mitjanaModul();
-                case 4 -> pn.matriuNotes();    
-                case 5 -> pn.notaAlumneModul();     
-                case 0 -> System.out.println("PROGRAMA FINALITZAT!!!");
-                default -> System.out.println("Aquesta opció no existeix.");
+                case 1: 
+                    pn.inserirAlumne();
+                    break;
+                case 2:
+                    pn.mitjanesAlumnes();
+                    break;
+                case 3:
+                    pn.mitjanaModul();
+                    break;
+                case 4:
+                    pn.matriuNotes(); 
+                    break;
+                case 5:
+                    pn.notaAlumneModul();
+                    break;
+                case 0:
+                    System.out.println("PROGRAMA FINALITZAT!!!");
+                    break;
+                default:
+                    System.out.println("Aquesta opció no existeix.");
             } 
         } while (opcio != (byte) 0); 
     }
@@ -78,7 +91,29 @@ public class Prog08Notes {
     
     //MENÚ DE OPCIONES
     private static byte menuOpcions ()  {
-
+        byte opcio=0;
+        do{
+            try{
+                Scanner op = new Scanner (System.in);
+                //menú d'opcions del programa
+                System.out.println("1. Entrada de datos de un alumno e inserción en la lista de alumnos. ");
+                System.out.println("2. Visualizar las medias de todos los alumnos. ");
+                System.out.println("3. Visualizar la nota media de un determinado módulo. ");
+                System.out.println("4. Visualizar todos los datos en pantalla (informe global del curso). Obligatorio construir un array bidimensional que almacenará las notas de todos los alumnos de la lista y los mostrará por pantalla. "); 
+                System.out.println("5. Visualizar una nota determinada de un aluno.");
+                System.out.println("0. Salir de la aplicación.");
+                System.out.print("Introdueix l'opcio elegida: ");
+                opcio=op.nextByte();
+                if (opcio < 0 || opcio > 5) {
+                System.out.println("Escollir entre (0..5)!.");    
+                }
+            }    
+            catch(Exception e){
+                System.out.println("Error al llegir del teclat(0..5)!.");
+            }
+            
+        }while (opcio < 0 || opcio > 5);
+        return opcio;
     } 
    
 }

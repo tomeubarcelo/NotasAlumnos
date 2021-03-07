@@ -24,6 +24,7 @@ public class Alumno {
     //MÉTODO ESTÁTICO DE CLASE USADO PARA VALIDAR UN CÓDIGO, SE LLAMA 
     //DIRECTAMENTE DESDE CLASE
     public static boolean validaCodi(String codiAlumne) {
+        return false;
 
     }    
     
@@ -49,22 +50,26 @@ public class Alumno {
 
     //GETTER DEL CÓDIGO
     public String getCodi () {
+        return null;
 
     }
     
     //GETTER DE UNA NOTA DEL ARRAY, RECIBE EL ÍNDICE POR PARÁMETRO
     public float getNota(int i) {
+        return 0;
 
     }   
     
     //GETTER DEL ARRAY DE NOTAS
     //Atención: el array es un puntero!!!
     public float[] getNotes () {
+        return null;
 
     }
     
     //MÉTODO QUE DEVUELVE EL CÁLCULO DE LA MEDIA DE LAS NOTAS DEL ARRAY DE NOTAS
     public float mitjanaNotes () {
+        return 0;
 
     }
 }
