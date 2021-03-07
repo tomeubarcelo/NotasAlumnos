@@ -40,7 +40,7 @@ public class Alumno {
     public void setCodi(String codiAlumne) throws Exception {
         if (!validaCodi(codiAlumne)) { //crea l'excepció
             throw new Exception ("Formato incorrecto");
-        } else{
+        } else{ //guarda el codi
             this.codi = codiAlumne;
         }
     }
@@ -48,7 +48,11 @@ public class Alumno {
     //SETTER DE UNA NOTA DEL ARRAY DE NOTES, RECIBE EL ÍNDICE DEL ARRAY Y LA NOTA
     //LA NOTA DEBE SER VALIDADA, UN VALOR ENTRE 0 Y 10
     public void setNota(int i, float nota) throws Exception {
-
+        if (nota<0 || nota>10) { //crea l'excepció
+            throw new Exception ("Nota incorrecta");
+        } else { //guarda la nota
+          this.notes[i]=nota;
+        }
     }
     
     //SETTER DEL ARRAY DE NOTES, RECIBE EL ARRAY COMPLETO
@@ -66,7 +70,7 @@ public class Alumno {
     
     //GETTER DE UNA NOTA DEL ARRAY, RECIBE EL ÍNDICE POR PARÁMETRO
     public float getNota(int i) {
-        return 0;
+        return notes[i];
 
     }   
     

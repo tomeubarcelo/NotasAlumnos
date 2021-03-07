@@ -25,8 +25,7 @@ public class Prog08Notes {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        //per controlar l'entrada de dades correcte dels comptes A i B
-        boolean dadaOk; 
+
         // Instanciamos la clase Prog08notes para usar sus atributos
         Prog08Notes pn = new Prog08Notes(); 
         byte opcio = 0;
@@ -69,10 +68,12 @@ public class Prog08Notes {
 
     //MÉTODO PARA AÑADIR UN ALUMNO A LA LISTA alumnes
     public void inserirAlumne() throws Exception {
+        //variable per controlar que el codi alu sigui correcte
         boolean dadaOk;
         //Creació de l'objecte alumno amb el constructor per defecte
         Alumno alumno1 = new Alumno();
-        //Demanar el nom del titular del compteA fins que sigui correcte
+        
+        //Demanar el codi fins que sigui correcte
         do { 
             try {
                 dadaOk = true;
@@ -81,11 +82,33 @@ public class Prog08Notes {
                 Scanner sc = new Scanner (System.in);
                 String codiAlu = sc.next();
                 alumno1.setCodi(codiAlu);
+                System.out.println("El codi del alumne es "+alumno1.getCodi());
         }catch (Exception e){ //tractam l'excepció generada per setCodi
                 System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
                 dadaOk = false;
             }
         } while (!dadaOk);
+        
+        //demanar notes alumne
+        //Demanar el codi fins que sigui correcte
+        for (int i = 0; i < moduls.length; i++) {
+            do { 
+                try {
+                    dadaOk = true;
+                    Scanner sc = new Scanner (System.in);
+
+                        System.out.println("Introdueix la nota de "+moduls[i]);
+                        float notesAlu = sc.nextFloat();
+                        alumno1.setNota(i,notesAlu);
+                        System.out.println("La nota de l'alumne al mòdul "+moduls[i]+" és "+alumno1.getNota(i));
+
+                }catch (Exception e){ //tractam l'excepció generada per setCodi
+                    System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
+                    dadaOk = false;
+                }
+            } while (!dadaOk);
+        }
+
     }   
 
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
