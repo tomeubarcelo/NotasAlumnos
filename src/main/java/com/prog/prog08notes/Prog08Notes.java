@@ -82,7 +82,7 @@ public class Prog08Notes {
                 Scanner sc = new Scanner (System.in);
                 String codiAlu = sc.next();
                 alumno1.setCodi(codiAlu);
-                System.out.println("El codi del alumne es "+alumno1.getCodi());
+                //System.out.println("El codi del alumne es "+alumno1.getCodi());
         }catch (Exception e){ //tractam l'excepció generada per setCodi
                 System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
                 dadaOk = false;
@@ -100,7 +100,7 @@ public class Prog08Notes {
                         System.out.println("Introdueix la nota de "+moduls[i]);
                         float notesAlu = sc.nextFloat();
                         alumno1.setNota(i,notesAlu);
-                        System.out.println("La nota de l'alumne al mòdul "+moduls[i]+" és "+alumno1.getNota(i));
+                        //System.out.println("La nota de l'alumne al mòdul "+moduls[i]+" és "+alumno1.getNota(i));
 
                 }catch (Exception e){ //tractam l'excepció generada per setCodi
                     System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
@@ -108,6 +108,16 @@ public class Prog08Notes {
                 }
             } while (!dadaOk);
         }
+        
+        //guardar objecte alumne a l'arrayList alumnes
+        alumnes.add(alumno1);
+        //System.out.println(alumnes.get(0));
+        /*
+        for (int i=0;i<alumnes.size();i++) {
+            System.out.println(alumnes.get(i));
+        }
+        */
+
 
     }   
 
