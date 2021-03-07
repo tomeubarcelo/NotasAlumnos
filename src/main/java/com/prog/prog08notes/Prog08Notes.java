@@ -25,6 +25,8 @@ public class Prog08Notes {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
+        //per controlar l'entrada de dades correcte dels comptes A i B
+        boolean dadaOk; 
         // Instanciamos la clase Prog08notes para usar sus atributos
         Prog08Notes pn = new Prog08Notes(); 
         byte opcio = 0;
@@ -67,16 +69,23 @@ public class Prog08Notes {
 
     //MÉTODO PARA AÑADIR UN ALUMNO A LA LISTA alumnes
     public void inserirAlumne() throws Exception {
+        boolean dadaOk;
         //Creació de l'objecte alumno amb el constructor per defecte
         Alumno alumno1 = new Alumno();
-        
-        //demanam codi alumne 
-        System.out.println("Codi alumne: ");
-        Scanner sc = new Scanner (System.in);
-        String codiAlu = sc.next();
-        alumno1.setCodi(codiAlu);
-        
-        System.out.println("Codi alu "+alumno1.getCodi());
+        //Demanar el nom del titular del compteA fins que sigui correcte
+        do { 
+            try {
+                dadaOk = true;
+                //demanam codi alumne 
+                System.out.println("Codi alumne: ");
+                Scanner sc = new Scanner (System.in);
+                String codiAlu = sc.next();
+                alumno1.setCodi(codiAlu);
+        }catch (Exception e){ //tractam l'excepció generada per setCodi
+                System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
+                dadaOk = false;
+            }
+        } while (!dadaOk);
     }   
 
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
