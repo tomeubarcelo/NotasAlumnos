@@ -24,15 +24,25 @@ public class Alumno {
     //MÉTODO ESTÁTICO DE CLASE USADO PARA VALIDAR UN CÓDIGO, SE LLAMA 
     //DIRECTAMENTE DESDE CLASE
     public static boolean validaCodi(String codiAlumne) {
-        return false;
-
+        Pattern p=Pattern.compile("[A-Z]{3}[0-9]{2}");
+        Matcher m=p.matcher(codiAlumne);
+        
+        if (m.matches()){ //formato correcto
+            return true; 
+        } else{ //formato incorrecto
+            return false;
+        }
     }    
     
     //MÉTODO SETTER DEL CÓDIGO
     //ANTES DE ESTABLECER UN CÓDIGO SIEMPRE VALIDAREMOS EL PATRÓN 
     //LLAMANDO AL MÉTODO DE CLASE validaCodi()
     public void setCodi(String codiAlumne) throws Exception {
-
+        if (!validaCodi(codiAlumne)) { //crea l'excepció
+            throw new Exception ("Formato incorrecto");
+        } else{
+            this.codi = codi;
+        }
     }
     
     //SETTER DE UNA NOTA DEL ARRAY DE NOTES, RECIBE EL ÍNDICE DEL ARRAY Y LA NOTA
