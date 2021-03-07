@@ -55,7 +55,7 @@ public class Prog08Notes {
                 default:
                     System.out.println("Aquesta opció no existeix.");
             } 
-        } while (opcio==1 || opcio == 2 || opcio==3 || opcio == 4 || opcio == 5 );
+        } while (opcio != (byte) 0);
     }
     
     //Definición de los métodos 
