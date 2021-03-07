@@ -69,10 +69,14 @@ public class Prog08Notes {
     public void inserirAlumne() throws Exception {
         //Creació de l'objecte alumno amb el constructor per defecte
         Alumno alumno1 = new Alumno();
+        
+        //demanam codi alumne 
         System.out.println("Codi alumne: ");
         Scanner sc = new Scanner (System.in);
         String codiAlu = sc.next();
         alumno1.setCodi(codiAlu);
+        
+        System.out.println("Codi alu "+alumno1.getCodi());
     }   
 
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO

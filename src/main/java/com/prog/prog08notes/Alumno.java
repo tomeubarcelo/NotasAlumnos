@@ -41,7 +41,7 @@ public class Alumno {
         if (!validaCodi(codiAlumne)) { //crea l'excepció
             throw new Exception ("Formato incorrecto");
         } else{
-            this.codi = codi;
+            this.codi = codiAlumne;
         }
     }
     
@@ -60,7 +60,7 @@ public class Alumno {
 
     //GETTER DEL CÓDIGO
     public String getCodi () {
-        return null;
+        return codi;
 
     }
     
