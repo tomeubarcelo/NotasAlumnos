@@ -111,12 +111,16 @@ public class Prog08Notes {
         
         //guardar objecte alumne a l'arrayList alumnes
         alumnes.add(alumno1);
+        System.out.println("Alumne inserit.");
         //System.out.println(alumnes.get(0));
         /*
         for (int i=0;i<alumnes.size();i++) {
-            System.out.println(alumnes.get(i));
+        System.out.println(alumnes.get(i));
         }
-        */
+         */
+        alumnes.forEach(p -> {
+            System.out.println(p.getNota(1));
+        });
 
 
     }   
