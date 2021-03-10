@@ -77,7 +77,7 @@ public class Alumno {
     //GETTER DEL ARRAY DE NOTAS
     //Atención: el array es un puntero!!!
     public float[] getNotes () {
-        return null;
+        return notes;
 
     }
     

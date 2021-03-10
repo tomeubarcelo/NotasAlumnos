@@ -7,6 +7,7 @@ package com.prog.prog08notes;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -119,13 +120,12 @@ public class Prog08Notes {
         System.out.println("Alumne inserit.");
         //System.out.println(alumnes.get(0));
         
-        alumnes.forEach(p -> {
+        /*alumnes.forEach(p -> {
             System.out.println(p.getNota(0));
         });
-        
+        */
         for(int i = 0; i< alumnes.size(); i++){
             System.out.println(alumnes.get(i).getCodi());  
-            System.out.println(alumnes.get(i).getNota(0));   
         }
 
     }   
@@ -133,7 +133,7 @@ public class Prog08Notes {
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
     public void mitjanesAlumnes() {
         
-        System.out.println("alumnes.size() :"+alumnes.size());
+        //System.out.println("alumnes.size() :"+alumnes.size());
         
         for(int i = 0; i< alumnes.size(); i++){
             float notaMedia = (alumnes.get(i).getNota(0)+alumnes.get(i).getNota(1)+alumnes.get(i).getNota(2)+alumnes.get(i).getNota(3))/4;
@@ -143,7 +143,9 @@ public class Prog08Notes {
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
-
+        for(int i = 0; i< alumnes.size(); i++){
+            System.out.println(Arrays.toString(alumnes.get(i).getNotes()));
+        }
     }
 
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
