@@ -141,11 +141,22 @@ public class Prog08Notes {
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
         Scanner entradaScanner = new Scanner (System.in);
-        System.out.println("Introduce el DNI a buscar:");
+        System.out.println("Introduce el módulo:");
         String modulo = entradaScanner.nextLine();
-        for(int i = 0; i< alumnes.size(); i++){
-            System.out.println(Arrays.toString(alumnes.get(i).getNotes()));
+        
+        float notaMediaModulo = 0;
+        for (int i = 0; i < moduls.length; i++) {
+          if (modulo.equals(moduls[i])){
+                for(int j = 0; j< alumnes.size(); i++){
+                    System.out.println("MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO");
+                    notaMediaModulo = notaMediaModulo + alumnes.get(j).getNota(i);
+                    System.out.println("notaMediaModulo :"+notaMediaModulo);
+                }
+                System.out.println(notaMediaModulo/alumnes.size());
+            }  
         }
+        
+        
     }
 
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
