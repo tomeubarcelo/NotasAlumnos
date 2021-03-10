@@ -133,16 +133,16 @@ public class Prog08Notes {
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
     public void mitjanesAlumnes() {
         
-        //System.out.println("alumnes.size() :"+alumnes.size());
-        
         for(int i = 0; i< alumnes.size(); i++){
-            float notaMedia = (alumnes.get(i).getNota(0)+alumnes.get(i).getNota(1)+alumnes.get(i).getNota(2)+alumnes.get(i).getNota(3))/4;
-            System.out.println("La nota media del alumno "+alumnes.get(i).getCodi() +" es: "+notaMedia);
+            System.out.println(alumnes.get(i).mitjanaNotes());
         }
     }
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
+        Scanner entradaScanner = new Scanner (System.in);
+        System.out.println("Introduce el DNI a buscar:");
+        String modulo = entradaScanner.nextLine();
         for(int i = 0; i< alumnes.size(); i++){
             System.out.println(Arrays.toString(alumnes.get(i).getNotes()));
         }
@@ -151,7 +151,7 @@ public class Prog08Notes {
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
     //EL ARRAY DE DOS DIMENSIONES totesNotes[][]
     public void matriuNotes() {
-
+        
     }
 
     //MÉTODO PARA PEDIR POR TECLADO UN ALUMNO Y UN MÓDULO,

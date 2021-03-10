@@ -59,7 +59,7 @@ public class Alumno {
     //CADA UNA DE LAS NOTAS DEBE SER VALIDADA, UN VALOR ENTRE 0 Y 10
     //Atención: el array es un puntero!!!
     public void setNotes(float[] notesAlumne) throws Exception {
-
+        this.notes = notesAlumne;
     }
 
     //GETTER DEL CÓDIGO
@@ -83,7 +83,12 @@ public class Alumno {
     
     //MÉTODO QUE DEVUELVE EL CÁLCULO DE LA MEDIA DE LAS NOTAS DEL ARRAY DE NOTAS
     public float mitjanaNotes () {
-        return 0;
+        float notaMedia = 0;
+        for(int i=0;i<notes.length;i++){
+            notaMedia = notaMedia + getNota(i);
+        }
+        return notaMedia/4;
+
 
     }
 }
