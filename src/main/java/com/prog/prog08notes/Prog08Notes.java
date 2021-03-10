@@ -66,11 +66,14 @@ public class Prog08Notes {
        this.alumnes = new ArrayList<Alumno>();
     }
     
-    //Creació de l'objecte alumno amb el constructor per defecte
-    Alumno alumno1 = new Alumno();
+
         
     //MÉTODO PARA AÑADIR UN ALUMNO A LA LISTA alumnes
     public void inserirAlumne() throws Exception {
+        
+        //Creació de l'objecte alumno amb el constructor per defecte
+        Alumno alumno1 = new Alumno();
+        
         //variable per controlar que el codi alu sigui correcte
         boolean dadaOk;
         
@@ -115,24 +118,32 @@ public class Prog08Notes {
         alumnes.add(alumno1);
         System.out.println("Alumne inserit.");
         //System.out.println(alumnes.get(0));
-        /*
+        
         alumnes.forEach(p -> {
             System.out.println(p.getNota(0));
         });
-        */
+        
+        for(int i = 0; i< alumnes.size(); i++){
+            System.out.println(alumnes.get(i).getCodi());  
+            System.out.println(alumnes.get(i).getNota(0));   
+        }
 
     }   
 
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
     public void mitjanesAlumnes() {
         
-        float notaMedia = (alumno1.getNota(0)+alumno1.getNota(1)+alumno1.getNota(2)+alumno1.getNota(3))/4;
-        System.out.println("La nota media del alumno "+ alumno1.getCodi() +" es: "+notaMedia);
+        System.out.println("alumnes.size() :"+alumnes.size());
+        
+        for(int i = 0; i< alumnes.size(); i++){
+            float notaMedia = (alumnes.get(i).getNota(0)+alumnes.get(i).getNota(1)+alumnes.get(i).getNota(2)+alumnes.get(i).getNota(3))/4;
+            System.out.println("La nota media del alumno "+alumnes.get(i).getCodi() +" es: "+notaMedia);
+        }
     }
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
-   
+
     }
 
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
