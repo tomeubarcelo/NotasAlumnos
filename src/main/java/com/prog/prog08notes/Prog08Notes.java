@@ -147,7 +147,7 @@ public class Prog08Notes {
         float notaMediaModulo = 0;
         for (int i = 0; i < moduls.length; i++) {
           if (modulo.equals(moduls[i])){
-                for(int j = 0; j< alumnes.size(); i++){
+                for(int j = 0; j< alumnes.size(); j++){
                     System.out.println("MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO");
                     notaMediaModulo = notaMediaModulo + alumnes.get(j).getNota(i);
                     System.out.println("notaMediaModulo :"+notaMediaModulo);
