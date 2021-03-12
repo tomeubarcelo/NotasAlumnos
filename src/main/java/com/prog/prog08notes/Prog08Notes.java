@@ -116,17 +116,17 @@ public class Prog08Notes {
         }
         
         //guardar objecte alumne a l'arrayList alumnes
-        alumnes.add(alumno1);
-        System.out.println("Alumne inserit.");
-        //System.out.println(alumnes.get(0));
-        
-        /*alumnes.forEach(p -> {
-            System.out.println(p.getNota(0));
-        });
-        */
-        for(int i = 0; i< alumnes.size(); i++){
-            System.out.println(alumnes.get(i).getCodi());  
+        try {
+            alumnes.add(alumno1);
+            System.out.println("Alumne inserit.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+        
+
+        /*for(int i = 0; i< alumnes.size(); i++){
+            System.out.println(alumnes.get(i).getCodi());  
+        }*/
 
     }   
 
@@ -134,25 +134,27 @@ public class Prog08Notes {
     public void mitjanesAlumnes() {
         
         for(int i = 0; i< alumnes.size(); i++){
-            System.out.println(alumnes.get(i).mitjanaNotes());
+            System.out.println("La nota media del alumno con código " +alumnes.get(i).getCodi() + " es " +alumnes.get(i).mitjanaNotes());
         }
     }
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
         Scanner entradaScanner = new Scanner (System.in);
-        System.out.println("Introduce el módulo:");
+        System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
         String modulo = entradaScanner.nextLine();
         
+        float notaPorAlumno = 0;
         float notaMediaModulo = 0;
         for (int i = 0; i < moduls.length; i++) {
           if (modulo.equals(moduls[i])){
                 for(int j = 0; j< alumnes.size(); j++){
-                    System.out.println("MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO");
-                    notaMediaModulo = notaMediaModulo + alumnes.get(j).getNota(i);
-                    System.out.println("notaMediaModulo :"+notaMediaModulo);
+                    //System.out.println("MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO");
+                    notaPorAlumno = notaPorAlumno + alumnes.get(j).getNota(i);
+                    //System.out.println("notaMediaModulo :"+notaMediaModulo);
+                    notaMediaModulo = notaPorAlumno/alumnes.size();
                 }
-                System.out.println(notaMediaModulo/alumnes.size());
+                System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +notaMediaModulo);
             }  
         }
         
