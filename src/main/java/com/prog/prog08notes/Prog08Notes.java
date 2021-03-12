@@ -169,16 +169,13 @@ public class Prog08Notes {
         for(int i = 0; i< alumnes.size(); i++){
             for(int j = 0; j< moduls.length; j++){
                 totesNotes[i][j] = alumnes.get(i).getNota(j);
+                System.out.println(alumnes.get(i).getCodi());
+                System.out.println(moduls[j]);
                 System.out.println(totesNotes[i][j]);
+                System.out.println("--------");
             }
         }
-        //totesNotes[1][1] = 1;
-        System.out.println(totesNotes.length);
-        /*
-        for(int i = 0; i< alumnes.size(); i++){
-            totesNotes[0][0] = 1;
-            System.out.println(totesNotes[0][0]);
-        }*/
+        //System.out.println(totesNotes.length);
     }
 
     //MÉTODO PARA PEDIR POR TECLADO UN ALUMNO Y UN MÓDULO,
