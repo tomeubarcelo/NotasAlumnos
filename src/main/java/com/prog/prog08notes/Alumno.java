@@ -88,8 +88,6 @@ public class Alumno {
             notaMedia = notaMedia + getNota(i);
         }
         return notaMedia/4;
-
-
     }
 }
 

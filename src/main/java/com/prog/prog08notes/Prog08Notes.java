@@ -20,7 +20,7 @@ public class Prog08Notes {
     private static final String[] moduls = {"SiPROG", "SiMSO", "SiWEB", "SiXAR"};
     private ArrayList <Alumno> alumnes;
     private float[][] totesNotes;
-    
+    DecimalFormat formatoDosDecimales = new DecimalFormat("#.00");
     /**
      * @param args the command line arguments
      */
@@ -134,7 +134,8 @@ public class Prog08Notes {
     public void mitjanesAlumnes() {
         
         for(int i = 0; i< alumnes.size(); i++){
-            System.out.println("La nota media del alumno con código " +alumnes.get(i).getCodi() + " es " +alumnes.get(i).mitjanaNotes());
+            float notaMediaAlu = alumnes.get(i).mitjanaNotes();
+            System.out.println("La nota media del alumno con código " +alumnes.get(i).getCodi() + " es " +formatoDosDecimales.format(notaMediaAlu));
         }
     }
 
@@ -154,7 +155,7 @@ public class Prog08Notes {
                     //System.out.println("notaMediaModulo :"+notaMediaModulo);
                     notaMediaModulo = notaPorAlumno/alumnes.size();
                 }
-                System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +notaMediaModulo);
+                System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +formatoDosDecimales.format(notaMediaModulo));
             }  
         }
         
