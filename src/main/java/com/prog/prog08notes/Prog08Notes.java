@@ -165,7 +165,20 @@ public class Prog08Notes {
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
     //EL ARRAY DE DOS DIMENSIONES totesNotes[][]
     public void matriuNotes() {
-        
+        totesNotes = new float[alumnes.size()][moduls.length];
+        for(int i = 0; i< alumnes.size(); i++){
+            for(int j = 0; j< moduls.length; j++){
+                totesNotes[i][j] = alumnes.get(i).getNota(j);
+                System.out.println(totesNotes[i][j]);
+            }
+        }
+        //totesNotes[1][1] = 1;
+        System.out.println(totesNotes.length);
+        /*
+        for(int i = 0; i< alumnes.size(); i++){
+            totesNotes[0][0] = 1;
+            System.out.println(totesNotes[0][0]);
+        }*/
     }
 
     //MÉTODO PARA PEDIR POR TECLADO UN ALUMNO Y UN MÓDULO,
