@@ -171,8 +171,8 @@ public class Prog08Notes {
                 totesNotes[i][j] = alumnes.get(i).getNota(j);
                 System.out.println(alumnes.get(i).getCodi());
                 System.out.println(moduls[j]);
-                System.out.println(totesNotes[i][j]);
-                System.out.println("--------");
+                System.out.println(formatoDosDecimales.format(totesNotes[i][j]));
+                System.out.println("-------");
             }
         }
         //System.out.println(totesNotes.length);
@@ -181,7 +181,29 @@ public class Prog08Notes {
     //MÉTODO PARA PEDIR POR TECLADO UN ALUMNO Y UN MÓDULO,
     //BUSCARLO EN LA LISTA Y MOSTRAR SU NOTA
     public void notaAlumneModul() {
+        Scanner entradaScanner = new Scanner (System.in);
+        System.out.println("Códigos de alumnos:");
+        for(int i = 0; i< alumnes.size(); i++){
+            System.out.print(alumnes.get(i).getCodi()+" | ");  
+        }
+        System.out.println("Introduce el código del alumno: ");
+        String codiAlu = entradaScanner.nextLine();
         
+        System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
+        String modulo = entradaScanner.nextLine();
+        
+        for(int z = 0; z< alumnes.size(); z++){
+            if (codiAlu.equals(alumnes.get(z).getCodi())){
+
+                for (int i = 0; i < moduls.length; i++) {
+                  if (modulo.equals(moduls[i])){
+                        float notaAluConcreta = alumnes.get(z).getNota(i);
+                        System.out.println(formatoDosDecimales.format(notaAluConcreta));                   
+                    }  
+                }
+            }
+            
+        }
     }
     
     //MENÚ DE OPCIONES
