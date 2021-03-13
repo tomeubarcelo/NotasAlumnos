@@ -20,10 +20,10 @@ public class Prog08Notes {
     private static final String[] moduls = {"SiPROG", "SiMSO", "SiWEB", "SiXAR"};
     private ArrayList <Alumno> alumnes;
     private float[][] totesNotes;
+    
+    //el formato de las notas sera con 2 decimales
     DecimalFormat formatoDosDecimales = new DecimalFormat("#.00");
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
 
@@ -66,9 +66,7 @@ public class Prog08Notes {
     public Prog08Notes() {
        this.alumnes = new ArrayList<Alumno>();
     }
-    
-
-        
+       
     //MÉTODO PARA AÑADIR UN ALUMNO A LA LISTA alumnes
     public void inserirAlumne() throws Exception {
         
@@ -77,8 +75,7 @@ public class Prog08Notes {
         
         //variable per controlar que el codi alu sigui correcte
         boolean dadaOk;
-        
-        
+               
         //Demanar el codi fins que sigui correcte
         do { 
             try {
@@ -122,17 +119,14 @@ public class Prog08Notes {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-
         /*for(int i = 0; i< alumnes.size(); i++){
             System.out.println(alumnes.get(i).getCodi());  
         }*/
-
     }   
 
     //MÉTODO PARA MOSTRAR LA NOTA MEDIA DE CADA ALUMNO
     public void mitjanesAlumnes() {
-        
+        //bucle que recorre el array de alumnos y asigna a cada alumno su media de notas
         for(int i = 0; i< alumnes.size(); i++){
             float notaMediaAlu = alumnes.get(i).mitjanaNotes();
             System.out.println("La nota media del alumno con código " +alumnes.get(i).getCodi() + " es " +formatoDosDecimales.format(notaMediaAlu));
@@ -141,34 +135,34 @@ public class Prog08Notes {
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
+        //pedimos de que modulo desea mostrar la nota media
         Scanner entradaScanner = new Scanner (System.in);
         System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
         String modulo = entradaScanner.nextLine();
         
         float notaPorAlumno = 0;
         float notaMediaModulo = 0;
-        for (int i = 0; i < moduls.length; i++) {
-          if (modulo.equals(moduls[i])){
-                for(int j = 0; j< alumnes.size(); j++){
-                    //System.out.println("MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO");
+        for (int i = 0; i < moduls.length; i++) { //recorre todos los modulos
+          if (modulo.equals(moduls[i])){ //si el modulo introducido por el usuario coincide con alguno
+                for(int j = 0; j< alumnes.size(); j++){ //recorremos el array de alumnos
                     notaPorAlumno = notaPorAlumno + alumnes.get(j).getNota(i);
-                    //System.out.println("notaMediaModulo :"+notaMediaModulo);
                     notaMediaModulo = notaPorAlumno/alumnes.size();
+                    //obtenemos la nota de cada alumno de un determinado modulo y se divide por el total de alumnos
                 }
                 System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +formatoDosDecimales.format(notaMediaModulo));
             }  
-        }
-        
-        
+        }     
     }
 
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
     //EL ARRAY DE DOS DIMENSIONES totesNotes[][]
     public void matriuNotes() {
-        totesNotes = new float[alumnes.size()][moduls.length];
-        for(int i = 0; i< alumnes.size(); i++){
-            for(int j = 0; j< moduls.length; j++){
-                totesNotes[i][j] = alumnes.get(i).getNota(j);
+        totesNotes = new float[alumnes.size()][moduls.length]; 
+        //declaramos el array bidimiensional con la cantidad de alumnos y de modulos
+        
+        for(int i = 0; i< alumnes.size(); i++){ //recorre la cantidad de alumnos
+            for(int j = 0; j< moduls.length; j++){ //recorre la cantidad de modulos
+                totesNotes[i][j] = alumnes.get(i).getNota(j); //asignaremos la nota correspondiente 
                 System.out.println(alumnes.get(i).getCodi());
                 System.out.println(moduls[j]);
                 System.out.println(formatoDosDecimales.format(totesNotes[i][j]));
@@ -183,26 +177,25 @@ public class Prog08Notes {
     public void notaAlumneModul() {
         Scanner entradaScanner = new Scanner (System.in);
         System.out.println("Códigos de alumnos:");
-        for(int i = 0; i< alumnes.size(); i++){
+        for(int i = 0; i< alumnes.size(); i++){ //bucle que muestra el codigo de alumnos para que el usuario los vea
             System.out.print(alumnes.get(i).getCodi()+" | ");  
         }
         System.out.println("Introduce el código del alumno: ");
         String codiAlu = entradaScanner.nextLine();
-        
+        //el usuario introduce el cod de alumno y el modulo del cual quiere ver la nota
         System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
         String modulo = entradaScanner.nextLine();
         
-        for(int z = 0; z< alumnes.size(); z++){
-            if (codiAlu.equals(alumnes.get(z).getCodi())){
+        for(int z = 0; z< alumnes.size(); z++){ //recorremos el array de alumnos
+            if (codiAlu.equals(alumnes.get(z).getCodi())){ //si el cod alu existe..
 
-                for (int i = 0; i < moduls.length; i++) {
-                  if (modulo.equals(moduls[i])){
+                for (int i = 0; i < moduls.length; i++) { //recorre array de modulos
+                  if (modulo.equals(moduls[i])){ //si el modulo existe 
                         float notaAluConcreta = alumnes.get(z).getNota(i);
                         System.out.println(formatoDosDecimales.format(notaAluConcreta));                   
                     }  
                 }
-            }
-            
+            }     
         }
     }
     
