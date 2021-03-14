@@ -194,15 +194,66 @@ public class Prog08Notes {
     //BUSCARLO EN LA LISTA Y MOSTRAR SU NOTA
     public void notaAlumneModul() {
         Scanner entradaScanner = new Scanner (System.in);
+        
+        //creamos arrayList donde almacenamos el cod de cada alumno
+        ArrayList <String> arrayCodAlu = new ArrayList<String>();
+        for(int i = 0; i< alumnes.size(); i++){ //recorremos el array de alumnos
+            //System.out.println(alumnes.get(i).getCodi());  
+            String codAlu = alumnes.get(i).getCodi();
+            arrayCodAlu.add(codAlu); //guardamos en el array el codigo del alumno
+        }
+
         System.out.println("Códigos de alumnos:");
         for(int i = 0; i< alumnes.size(); i++){ //bucle que muestra el codigo de alumnos para que el usuario los vea
             System.out.print(alumnes.get(i).getCodi()+" | ");  
         }
-        System.out.println("Introduce el código del alumno: ");
-        String codiAlu = entradaScanner.nextLine();
-        //el usuario introduce el cod de alumno y el modulo del cual quiere ver la nota
-        System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
-        String modulo = entradaScanner.nextLine();
+        
+        boolean dadaOk;
+        String codiAlu = "";
+        //PEDIR POR CONSOLA EL CODIGO DEL ALUMNO
+        do { 
+            try {
+                System.out.println("Introduce el código del alumno: ");
+                codiAlu = entradaScanner.nextLine();
+                
+                if (arrayCodAlu.contains(codiAlu)) { //si el array contiene el codigo introducido por el usuario
+                    dadaOk = true;
+                }
+                else{ //si no contiene el cod introducido
+                    dadaOk = false;
+                }
+            }catch (Exception e){ //tractam l'excepció generada
+                        System.out.println(e.getMessage()+ ". Error");
+                        dadaOk = false;
+            }
+        } while (!dadaOk); //fin bucle
+                
+
+        String modulo = "";
+        do { 
+            try {
+                //el usuario introduce el cod de alumno y el modulo del cual quiere ver la nota
+                System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
+                modulo = entradaScanner.nextLine();
+                dadaOk = true; //boolean a true
+
+                if (Arrays.asList(moduls).contains(modulo)) { 
+
+                for (int i = 0; i < moduls.length; i++) { //recorre todos los modulos
+                      if (modulo.equals(moduls[i])){ //si el modulo introducido por el usuario coincide con alguno
+                            System.out.println("Has elegido "+moduls[i]);
+                        } 
+                    }
+                }
+                else{ //si no contiene el modulo introducido
+                    dadaOk = false;
+                }
+            }catch (Exception e){ //tractam l'excepció generada
+                        System.out.println(e.getMessage()+ ". Error");
+                        dadaOk = false;
+            }
+        } while (!dadaOk); //fin bucle
+
         
         for(int z = 0; z< alumnes.size(); z++){ //recorremos el array de alumnos
             if (codiAlu.equals(alumnes.get(z).getCodi())){ //si el cod alu existe..
@@ -210,6 +261,7 @@ public class Prog08Notes {
                 for (int i = 0; i < moduls.length; i++) { //recorre array de modulos
                   if (modulo.equals(moduls[i])){ //si el modulo existe 
                         float notaAluConcreta = alumnes.get(z).getNota(i);
+                        System.out.println(alumnes.get(z).getCodi() + " - " + moduls[i]);
                         System.out.println(formatoDosDecimales.format(notaAluConcreta));                   
                     }  
                 }
