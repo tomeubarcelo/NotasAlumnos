@@ -23,7 +23,10 @@ public class Prog08Notes {
     
     //el formato de las notas sera con 2 decimales
     DecimalFormat formatoDosDecimales = new DecimalFormat("#.00");
-
+    
+    //creamos arrayList donde almacenamos el cod de cada alumno
+    ArrayList <String> arrayCodAlu = new ArrayList<String>();
+    
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
 
@@ -86,6 +89,16 @@ public class Prog08Notes {
                 String codiAlu = sc.next();
                 alumno1.setCodi(codiAlu);
                 //System.out.println("El codi del alumne es "+alumno1.getCodi());
+                
+                //System.out.println(arrayCodAlu);
+                //comprobaremos si ya existe el codigo introducido por el usuario
+                if (!(arrayCodAlu.contains(codiAlu))) { //si no existe..
+                    arrayCodAlu.add(codiAlu); //lo guardamos en el array
+                } else{ //si ya existe.. 
+                    System.out.println("Ya existe el código. Vuelva a introducir el código");
+                    dadaOk = false; //seguimos en el bucle hasta que ponga otro codigo no existente
+                }
+                
         }catch (Exception e){ //tractam l'excepció generada per setCodi
                 System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
                 dadaOk = false;
@@ -195,8 +208,7 @@ public class Prog08Notes {
     public void notaAlumneModul() {
         Scanner entradaScanner = new Scanner (System.in);
         
-        //creamos arrayList donde almacenamos el cod de cada alumno
-        ArrayList <String> arrayCodAlu = new ArrayList<String>();
+        
         for(int i = 0; i< alumnes.size(); i++){ //recorremos el array de alumnos
             //System.out.println(alumnes.get(i).getCodi());  
             String codAlu = alumnes.get(i).getCodi();
@@ -280,7 +292,7 @@ public class Prog08Notes {
                 System.out.println("2. Visualizar las medias de todos los alumnos. ");
                 System.out.println("3. Visualizar la nota media de un determinado módulo. ");
                 System.out.println("4. Visualizar todos los datos en pantalla (informe global del curso)."); 
-                System.out.println("5. Visualizar una nota determinada de un aluno.");
+                System.out.println("5. Visualizar una nota determinada de un alumno.");
                 System.out.println("0. Salir de la aplicación.");
                 System.out.println("Introdueix l'opcio elegida: ");
                 opcio=op.nextByte();
