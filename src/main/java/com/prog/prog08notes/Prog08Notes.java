@@ -135,23 +135,41 @@ public class Prog08Notes {
 
     //MÉTODO PARA CALCULAR Y MOSTRAR LA NOTA MEDIA DE UN MÓDULO PEDIDO POR TECLADO
     public void mitjanaModul() {
-        //pedimos de que modulo desea mostrar la nota media
-        Scanner entradaScanner = new Scanner (System.in);
-        System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
-        String modulo = entradaScanner.nextLine();
         
-        float notaPorAlumno = 0;
-        float notaMediaModulo = 0;
-        for (int i = 0; i < moduls.length; i++) { //recorre todos los modulos
-          if (modulo.equals(moduls[i])){ //si el modulo introducido por el usuario coincide con alguno
-                for(int j = 0; j< alumnes.size(); j++){ //recorremos el array de alumnos
-                    notaPorAlumno = notaPorAlumno + alumnes.get(j).getNota(i);
-                    notaMediaModulo = notaPorAlumno/alumnes.size();
-                    //obtenemos la nota de cada alumno de un determinado modulo y se divide por el total de alumnos
+        boolean dadaOk;
+        do { 
+            try {
+                //pedimos de que modulo desea mostrar la nota media
+                Scanner entradaScanner = new Scanner (System.in);
+                System.out.println("Introduce el módulo (SiPROG, SiMSO, SiWEB, SiXAR):");
+                String modulo = entradaScanner.nextLine();
+
+                float notaPorAlumno = 0;
+                float notaMediaModulo = 0;
+
+                dadaOk = true; //boolean a true
+
+                if (Arrays.asList(moduls).contains(modulo)) { //si el array moduls contiene el modulo introducido
+
+                    for (int i = 0; i < moduls.length; i++) { //recorre todos los modulos
+                      if (modulo.equals(moduls[i])){ //si el modulo introducido por el usuario coincide con alguno
+                            for(int j = 0; j< alumnes.size(); j++){ //recorremos el array de alumnos
+                                notaPorAlumno = notaPorAlumno + alumnes.get(j).getNota(i);
+                                notaMediaModulo = notaPorAlumno/alumnes.size();
+                                //obtenemos la nota de cada alumno de un determinado modulo y se divide por el total de alumnos
+                            }
+                            System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +formatoDosDecimales.format(notaMediaModulo));
+                        } 
+                    }
                 }
-                System.out.println("La nota media en el módulo " + moduls[i]+ " es: " +formatoDosDecimales.format(notaMediaModulo));
-            }  
-        }     
+                else{ //si no contiene el modulo introducido
+                    dadaOk = false;
+                }
+            }catch (Exception e){ //tractam l'excepció generada
+                        System.out.println(e.getMessage()+ ". Error");
+                        dadaOk = false;
+            }
+        } while (!dadaOk); //fin bucle
     }
 
     //MÉTODO PARA MOSTRAR PARA CADA ALUMNO TODAS SUS NOTAS USANDO
