@@ -301,7 +301,7 @@ public class Prog08Notes {
                 }
             }    
             catch(Exception e){
-                System.out.println("Error al llegir del teclat(0..5)!.");
+                System.out.println(e.getMessage()+ " . Error al llegir del teclat(0..5)!.");
             }
             
         }while (opcio < 0 || opcio > 5);
