@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author tomeu
+ * @author tomeu barceló
+ * Tarea PROG08
  */
 public class Alumno {
     private String codi;

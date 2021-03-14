@@ -8,12 +8,12 @@ package com.prog.prog08notes;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  *
- * @author tomeu
+ * @author tomeu barceló
+ * Tarea PROG08
  */
 public class Prog08Notes {
     // Declaramos la constante de los nombres obligatorios de los módulos    
