@@ -119,7 +119,7 @@ public class Prog08Notes {
                         //System.out.println("La nota de l'alumne al mòdul "+moduls[i]+" és "+alumno1.getNota(i));
 
                 }catch (Exception e){ //tractam l'excepció generada per setCodi
-                    System.out.println(e.getMessage()+ ". Torna a introduir el codi de l'alumne: ");
+                    System.out.println(e.getMessage()+ ". Torna a introduir el modul: ");
                     dadaOk = false;
                 }
             } while (!dadaOk);
